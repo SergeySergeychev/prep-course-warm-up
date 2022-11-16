@@ -13,7 +13,14 @@ export {};
  */
 
 // You are allowed to change only this function
-function calculateSalesTax() {}
+function calculateSalesTax(price: number, tax: 0.21 = 0.21) {
+  function roundOff(num: number, places: number) {
+    const x = Math.pow(10, places);
+    return Math.round(num * x) / x;
+  }
+  const result = price * tax;
+  return roundOff(result, 3);
+}
 
 const product = "You don't know JS";
 const price = 19.99;

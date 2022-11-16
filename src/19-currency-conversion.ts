@@ -15,17 +15,22 @@ export {};
  */
 
 // You are allowed to change this function
-function convertToUSD(price) {}
-// You are allowed to change this function
-function convertToBRL(price) {}
-
+function convertCurrency(
+  amount: number,
+  currency: "$" | "R$",
+  fee: 0.01 = 0.01
+) {
+  const exchRate = currency === "$" ? 1.4 : 6.43;
+  const commision = fee * amount;
+  return Number((exchRate * amount - commision).toFixed(2));
+}
 const product = "You don't know JS";
 const price = 12.5;
-const priceInUSD = convertToUSD(price);
-const priceInBRL = convertToBRL(price);
+const priceInUSD = convertCurrency(price, "$");
+const priceInBRL = convertCurrency(price, "R$");
 
 console.log("Product: " + product);
-console.log("Price: $" + priceInUSD);
+console.log("Price: $ " + priceInUSD);
 console.log("Price: R$" + priceInBRL);
 
 /* Expected output:

@@ -9,7 +9,14 @@ export {};
  */
 
 // You are allowed to change only this function
-function formatCurrency() {}
+function formatCurrency(
+  num: number,
+  places: number = 2,
+  currency: string = "£"
+) {
+  // type of return is String to
+  return `${currency}${num.toFixed(places)}`;
+}
 
 function calculateSalesTax(price: number) {
   return price * 0.21;
