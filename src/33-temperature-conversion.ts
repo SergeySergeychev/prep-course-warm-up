@@ -14,8 +14,15 @@ export {};
  * Temperature should be rounded to one decimal place: i.e., fahrenheitToCelsius(100) should return 37.8 and not 37.77777777777778.
  */
 
-const fahrenheitToCelsius = ?
-const celsiusToFahrenheit = ?
+const round = (num: number, digits: number = 1) => {
+  return Number(num.toFixed(digits));
+};
+const fahrenheitToCelsius = (fahrenheit: number) => {
+  return round(((fahrenheit - 32) * 5) / 9);
+};
+const celsiusToFahrenheit = (celsius: number) => {
+  return round((celsius * 9) / 5 + 32);
+};
 
 console.log(fahrenheitToCelsius(32)); // Expected result: 0
 console.log(celsiusToFahrenheit(0)); // Expected result: 32

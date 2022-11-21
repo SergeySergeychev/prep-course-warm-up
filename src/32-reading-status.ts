@@ -4,21 +4,32 @@ const library = [
   {
     title: "Bill Gates",
     author: "The Road Ahead",
-    isRead: true
+    isRead: true,
   },
   {
     title: "Steve Jobs",
     author: "Walter Isaacson",
-    isRead: true
+    isRead: true,
   },
   {
     title: "Mockingjay: The Final Book of The Hunger Games",
     author: "Suzanne Collins",
-    isRead: false
-  }
+    isRead: false,
+  },
 ];
 
-const showStatus = () => {};
+const showStatus = (
+  library: { title: string; author: string; isRead: boolean }[]
+) => {
+  library.forEach((book) => {
+    const { title, author, isRead } = book;
+    if (isRead) {
+      console.log(`Already read ${title} by ${author}.`);
+    } else {
+      console.log(`You still need to read ${title} by ${author}.`);
+    }
+  });
+};
 
 showStatus(library);
 
